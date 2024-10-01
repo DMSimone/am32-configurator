@@ -461,12 +461,7 @@ const baudrateOptions = ref([
 const baudrate = ref('115200');
 
 const requestSerialDevices = async () => {
-    await navigator.serial.requestPort({
-        filters: [
-            ...usbFCVendorIds.map(id => ({ usbVendorId: id })),
-            ...usbDirectVendorIds.map(id => ({ usbVendorId: id }))
-        ]
-    });
+    await navigator.serial.requestPort();
     await fetchPairedDevices();
 };
 
